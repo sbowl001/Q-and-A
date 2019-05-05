@@ -8,7 +8,7 @@
 
 import Foundation
 //what is Equatable?
-struct Question {
+struct Question: Equatable {
 //     A question string that represents the actual question the asker has
     var question: String
 //    An asker string that will store the name of the person asking the question

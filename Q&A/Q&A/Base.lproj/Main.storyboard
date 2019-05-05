@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="188" id="Auc-sW-zVa" customClass="QuestionTableViewCell" customModule="Q_A" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionDisplay" rowHeight="188" id="Auc-sW-zVa" customClass="QuestionTableViewCell" customModule="Q_A" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="188"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Auc-sW-zVa" id="V6E-fX-qM9">
@@ -181,12 +181,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l3C-n5-REx">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hHh-2k-wls">
                                         <rect key="frame" x="0.0" y="95" width="375" height="238.5"/>
-                                        <nil key="textColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -200,8 +200,18 @@
                         <viewLayoutGuide key="safeArea" id="FuY-gE-x4S"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="uuF-hH-K8J">
-                        <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="ipz-4r-IzB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit Answer" id="ipz-4r-IzB">
+                            <connections>
+                                <action selector="submitAnswerTapped:" destination="sKF-oh-i4a" id="xgT-fz-z9z"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="answerPerson" destination="2FN-Si-zl0" id="yqK-Ps-0XP"/>
+                        <outlet property="answerQuestionPlace" destination="hHh-2k-wls" id="pB9-Hl-8ty"/>
+                        <outlet property="labelOne" destination="Udc-FE-TSx" id="lX7-7h-3tv"/>
+                        <outlet property="labelTwo" destination="3SM-U9-Lq5" id="FbX-NF-MHb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMs-md-LrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,12 +12,16 @@ class SubmitQViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var textView: UITextView!
+    
+//    Add a questionController: QuestionController? variable.
+    var questionController : QuestionController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-/*Add a questionController: QuestionController? variable.
+/*
  In the action of the bar button item:
  Get the text from each text field, and make sure they aren't nil or an empty string ("").
  Call the model controller's createQuestion method
@@ -25,6 +29,15 @@ class SubmitQViewController: UIViewController {
     
   
     @IBAction func submitQuestionTapped(_ sender: Any) {
+//        if( textField.text != nil && textField.text != "" && textView.text != nil && textView.text != "") {
+//            questionController?.create(question: textView.text!, asker: textField.text!)
+//            navigationController?.popViewController(animated: true)
+//        }
+        guard let name = textField.text,
+            let question = textView.text
+            else { return }
+        questionController?.create(question: question, asker: name)
+        navigationController?.popViewController(animated: true)
     }
     
     

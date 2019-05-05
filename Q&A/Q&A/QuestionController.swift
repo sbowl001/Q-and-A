@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import UIKit
+
 
 class QuestionController {
     
@@ -20,6 +20,9 @@ class QuestionController {
     }
     //    An "Update" function that takes in a Question (that you want to update), answer string, and an answerer string to add to the question.
     func update(question: Question, with answer: String, from answerer: String){
+        
+        
+        // all options work after making the struct Equatable -  what is equatable? and why doesn't it work without it?
         
         //op 1:
 //        guard let index = questions.index(of: question) else {return}
@@ -38,15 +41,16 @@ class QuestionController {
         //op 3
         
 //        func update(question: Question, answer: String, answerer: String){
-//            guard let index = questions.index(of: question) else {return}
-//        questions[index].answer = answer
-//        questions[index].answerer = answerer
+        guard let index = questions.index(of: question) else {return}
+        questions[index].answer = answer
+        questions[index].answerer = answerer
     }
     //    A "Delete" function that takes in a Question to be deleted, and removes it from the questions array.
-    func delete(indexPath: Int){
+    func delete(indexPath: Int){ //why Int?
         questions.remove(at: indexPath)
     }
 }
+
 
 
 
